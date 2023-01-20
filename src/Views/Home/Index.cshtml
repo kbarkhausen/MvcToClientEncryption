@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            Date:
+        </div>
+        <div id="date" class="col-sm">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            Role:
+        </div>
+        <div id="role" class="col-sm">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            Random:
+        </div>
+        <div id="random" class="col-sm">
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<script src="~/js/dataService.js"></script>
+<script src="~/js/decryptService.js"></script>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(function () {
+            var data = dataService.get();
+            console.log("data = " + data);
+            $("div#date").html(data.date);
+            $("div#role").html(data.role);
+            $("div#random").html(data.random);
+        });
+    </script>
+}
